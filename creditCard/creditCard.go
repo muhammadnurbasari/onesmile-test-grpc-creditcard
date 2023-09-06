@@ -16,8 +16,8 @@ func (c CreditCard) ValidateCreditCard(ctx context.Context, param *generate.Cred
 	number, err := strconv.Atoi(param.CreditCard)
 
 	if err != nil {
-		log.Error().Msg("error: " + err.Error())
-		return nil, err
+		log.Error().Msg("error : " + "credit card must be number of string")
+		return nil, errors.New("credit card must be number of string")
 	}
 
 	isValidate := luhn.Valid(number)
